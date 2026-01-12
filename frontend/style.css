@@ -1,0 +1,72 @@
+body {
+	background-color: powderblue;
+}
+		
+h1 {
+	text-align: center;
+	font-family: Calibri, Arial, sans-serif;
+}
+		
+h2 {
+	text-align: center;
+	font-family: Calibri, Arial, sans-serif;
+}
+		
+.buttons {
+    display: flex;
+	column-gap: 20px;
+    justify-content: center;
+}
+
+.draws {
+    display: flex;
+	column-gap: 20px;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    margin: auto;
+
+    display: block;
+
+    background-color: white;
+    border-radius: 8px;
+
+    outline-color: black;
+    outline-style: solid;
+    outline-width: 4px;
+
+    max-width: 14vw; min-width: 14vw;
+    max-height: 24vw; min-height: 24vw;
+
+    font-family: Calibri, Arial, sans-serif;
+}
+
+.card p {
+    margin-left : 8px;
+}
+
+#cards {
+    display: flex;
+}
+
+#cardSelect {
+    display: flex;
+}
+
+button {
+	border: none;
+	padding: 5px 10px;
+
+	border-radius: 8px;
+    border-color: black;
+
+    background-color: white;
+
+	transition: .5s;
+}
+		
+button:hover {
+	box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+}

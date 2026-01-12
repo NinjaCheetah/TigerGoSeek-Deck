@@ -1,6 +1,6 @@
-// "app.js" from RIT Hide and Seek Deck
+// "app.js" from TigerGoSeek Deck
 // Copyright (c) 2026 NinjaCheetah
-// https://github.com/NinjaCheetah/RIT-Hide-and-Seek-Deck
+// https://github.com/NinjaCheetah/TigerGoSeek-Deck
 //
 // Provides the frontend code for interacting with the backend to display players' cards and trigger updates to them.
 
@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     parseURLParameters().then();
 });
 
-let API_URL = "http://localhost:8000"
-//let API_URL = "https://api.rithideandseek.ninjacheetah.dev"
+//let API_URL = "http://localhost:8000"
+let API_URL = "https://api.tigergoseek.ninjacheetah.dev"
 
 // Updates the HTML on the page to show the cards in the player's hand.
 async function updateDisplay(hand) {
@@ -21,13 +21,21 @@ async function updateDisplay(hand) {
 
     document.getElementById("hand_div").innerHTML = `<p id="null_card"></p>`;
 
-    for (let i = 0; i < hand.length; i++) {
-        const newCard = `<p>
-                                    <input type="checkbox" id="card${i}" name="card" value="card${hand[i]["id"]}"/>
-                                    <label for="card${i}"><b>${hand[i]["title"]}</b> - ${hand[i]["description"]}</label>
-                                </p>`;
-        document.getElementById("null_card").insertAdjacentHTML("afterend", newCard);
+    for(let i = 0; i < hand.length; i++) {
+        const cardDiv = `<div class="card"><h2>${hand[i]["title"]}</h2>
+        <p>${hand[i]["description"]}</p>
+        <p><b>${hand[i]["cost"]}</b></p>`;
+
+        document.getElementById("null_card").insertAdjacentHTML("afterend", cardDiv);
     }
+
+    // for (let i = 0; i < hand.length; i++) {
+    //     const newCard = `<p>
+    //                                 <input type="checkbox" id="card${i}" name="card" value="card${hand[i]["id"]}"/>
+    //                                 <label for="card${i}"><b>${hand[i]["title"]}</b> - ${hand[i]["description"]}</label>
+    //                             </p>`;
+    //     document.getElementById("null_card").insertAdjacentHTML("afterend", newCard);
+    // }
 }
 
 // Updates the current URL with the set parameters so that they won't get lost if the page reloads.
