@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "count": 5,
+        "title": "2 Minute Time Bonus",
+        "description": "",
+        "cost": ""
+    },
+    {
+        "id": 1,
+        "count": 5,
+        "title": "5 Minute Time Bonus",
+        "description": "",
+        "cost": ""
+    },
+    {
+        "id": 2,
+        "count": 5,
+        "title": "Veto",
+        "description": "You may choose to not answer the seeker's question.",
+        "cost": ""
+    },
+    {
+        "id": 3,
+        "count": 3,
+        "title": "Randomize Question",
+        "description": "",
+        "cost": ""
+    },
+    {
+        "id": 4,
+        "count": 1,
+        "title":"Curse of the Underground Informant",
+        "description":"Before the seekers can ask another question, they must find a copy of Gracie's Dinnertime Theater.",
+        "cost":"Discard a curse. This curse expires after 15 minutes."
+    },
+    {
+        "id": 5,
+        "count": 1,
+        "title":"Curse of the Fowlest Player",
+        "description":"The seekers must do an improv scene for the length of time bonus that the hider discards to play this curse, up to 10 minutes, longform style. The players may play multiple characters, clap people out, and change locations but the universe must stay the same.",
+        "cost":"Discard time bonuses."
+    }
+]
