@@ -60,27 +60,8 @@ h2 {
     background-color: gainsboro;
 }
 
-.card:has(> input:active) {
+.card:has(> input:checked) {
     background-color: gainsboro;
-}
-
-/* Checkmark */
-.card .checkbox-container::after {
-    content: "";
-    position: absolute;
-    display: none;
-    left: 7px;
-    top: 3px;
-    width: 6px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-/* Display checkmark when checked */
-.card input:checked~.checkbox-container::after {
-    display: block;
 }
 
 #hand_div {
