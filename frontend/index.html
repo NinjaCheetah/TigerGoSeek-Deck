@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RIT Hide & Seek</title>
     <script src="/app.js"></script>
     <link rel="stylesheet" href="style.css"> 
@@ -15,12 +16,19 @@
         </div>
 
         <div class="main" id="mainDiv">
-            <button type="button" id="btn_draw">Draw Card</button>
-            <button type="button" id="btn_reset">Reset Hand</button>
-            <div id="hand_div">
-                <p id="null_card"></p>
+            <div class="buttons">
+                <button type="button" id="btn_draw">Draw Card</button>
+                <button type="button" id="btn_reset">Reset Hand</button>
             </div>
-            <button type="button" id="btn_discard">Discard Selected Cards</button>
+            <div id="hand_div">
+                <div class="container">
+                        <p id="null_card"></p>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="btn_discard">Discard Selected Cards</button>
+            </div>
         </div>
     </body>
 </html>

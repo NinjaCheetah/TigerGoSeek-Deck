@@ -1,3 +1,5 @@
+@import '/assets/bootstrap/css/bootstrap.min.css';
+
 body {
 	background-color: powderblue;
 }
@@ -5,20 +7,20 @@ body {
 h1 {
 	text-align: center;
 	font-family: Calibri, Arial, sans-serif;
-    font-size: 3vw;
+    font-size: 6vw;
 }
 		
 h2 {
 	text-align: center;
 	font-family: Calibri, Arial, sans-serif;
-    font-size: 1.6vw;
-    margin-left: .2vw;
-    margin-right: .2vw;
+    font-size: 3.2vw;
+    margin-left: .4vw;
+    margin-right: .4vw;
 }
 
 p {
     font-family: Calibri, Arial, sans-serif;
-    font-size: 3vh;
+    font-size: 6vh;
 }
 
 input {
@@ -38,10 +40,9 @@ input {
 }
 
 #username_div {
-    display: flex;
+    display: inline;
 	column-gap: 20px;
     justify-content: center;
-    max-height: 10vh;
 }
 
 .card {
@@ -56,8 +57,8 @@ input {
     outline-style: solid;
     outline-width: 4px;
 
-    max-width: 14vw; min-width: 14vw;
-    max-height: 24vw; min-height: 24vw;
+    max-width: 32vw; min-width: 32vw;
+    max-height: 48vw; min-height: 48vw;
 
     font-family: Calibri, Arial, sans-serif;
 
@@ -66,15 +67,11 @@ input {
 
 .card p {
     margin-left : 8px;
-    font-size: 1vw;
+    font-size: 2.3vw;
 }
 
 .card input {
     visibility: hidden;
-}
-
-.card:hover {
-    background-color: gainsboro;
 }
 
 .card:has(> input:checked) {
@@ -82,9 +79,8 @@ input {
 }
 
 #hand_div {
-    margin-top: 6vh;
-    display: flex;
-    margin-bottom: 6vh;
+    display:flex;
+    justify-content: center;
 }
 
 #cardSelect {
@@ -93,16 +89,18 @@ input {
 
 button {
 	border: none;
-	padding: 5px 10px;
+	padding: 5vw 10vw;
 
 	border-radius: 8px;
     border-color: black;
 
     background-color: white;
 
-	transition: .5s;
+    font-size: 3vw;
 }
 		
-button:hover {
-	box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+button:active {
+	outline-color: black;
+    outline-style: solid;
+    outline-width: 4px;
 }
