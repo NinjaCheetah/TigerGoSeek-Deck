@@ -64,6 +64,8 @@ input {
     font-family: Calibri, Arial, sans-serif;
 
     transition: .5s;
+
+    margin-top: 1vh; margin-bottom: 1vh;
 }
 
 .card p {
@@ -82,7 +84,7 @@ input {
 #hand_div {
     display: block;
     position: relative;
-    right: 18.5vw
+    right: 18.5vw;
 }
 
 #cardSelect {
