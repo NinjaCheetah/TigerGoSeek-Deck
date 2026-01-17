@@ -48,7 +48,7 @@ input {
     border-radius: 8px;
     outline: black solid 4px;
     transition: .5s;
-    margin: 1rem;
+    margin: 0.5rem;
     max-height: fit-content; min-height: 58vw;
 }
 
