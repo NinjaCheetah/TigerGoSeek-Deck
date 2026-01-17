@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TigerGoSeek</title>
-    <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/app.js"></script>
-    <link rel="stylesheet" href="style.css"> 
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TigerGoSeek</title>
+        <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="/app.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    </head>
     <body>
-        <h1 class="page_title">TigerGoSeek</h1>
+        <div class="page-header text-center">
+            <h1 style="font-weight: bold">TigerGoSeek<span style="font-size: 1.5vw; color: dimgray;">Beta</span></h1>
+            <h3>Hider View</h3>
+        </div>
         <div id="username_div" class="buttons">
             <p>Enter a Username</p>
             <input type="text" class="form-control" id="username_entry"/>
@@ -17,20 +22,20 @@
         </div>
 
         <div class="main" id="mainDiv">
-            <div class="buttons">
-                <button type="button" id="btn_draw">Draw Card</button>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#resetHandConfirm">
-                    Reset Hand
-                </button>
+            <div class="text-center">
+                <button class="btn btn-light" type="button" id="btn_draw">Draw Card</button>
+                <button class="btn btn-light" type="button" id="btn_discard">Discard Selected Cards</button>
             </div>
             <div id="hand_div">
                 <div class="container">
-                        <p id="null_card"></p>
+                    <p id="null_card"></p>
                 </div>
             </div>
 
-            <div class="buttons">
-                <button type="button" id="btn_discard">Discard Selected Cards</button>
+            <div class="text-center">
+                <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#resetHandConfirm">
+                    Reset Hand
+                </button>
             </div>
         </div>
 

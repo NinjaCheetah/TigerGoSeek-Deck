@@ -1,21 +1,23 @@
 @import '/assets/bootstrap/css/bootstrap.min.css';
 
 :root {
-    font-family: Inter, sans-serif;
-    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
 @supports (font-variation-settings: normal) {
-    :root { font-family: InterVariable, sans-serif; }
+  :root { font-family: InterVariable, sans-serif; }
 }
+
 body {
-    font-family: Inter, sans-serif;
-    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
     background-color: #FFC38D;
 }
 
-h1 {
-	text-align: center;
+.page-header h1 {
     font-size: 6vw;
+}
+
+.page-header h3 {
+    font-size: 3vw;
 }
 
 #hand_div h2 {
@@ -24,10 +26,6 @@ h1 {
     margin-left: .4vw;
     margin-right: .4vw;
     font-weight: bold;
-}
-
-p {
-    font-size: 6vh;
 }
 
 input {
@@ -52,23 +50,23 @@ input {
 }
 
 .card {
-    margin: auto;
-
     display: block;
 
     background-color: white;
     border-radius: 8px;
 
-    outline-color: black;
-    outline-style: solid;
-    outline-width: 4px;
+    outline: black solid 4px;
 
     max-width: 32vw; min-width: 32vw;
     max-height: fit-content; min-height: 58vw;
 
     transition: .5s;
 
-    margin-top: 1vh; margin-bottom: 1vh;
+    margin: 1vh auto;
+}
+
+.card p {
+    font-size: 6vh;
 }
 
 .card p {
@@ -94,20 +92,20 @@ input {
     display: flex;
 }
 
-.buttons button {
-	border: none;
-	padding: 5vw 10vw;
+/*.buttons button {*/
+/*	border: none;*/
+/*	padding: 5vw 10vw;*/
 
-	border-radius: 8px;
-    border-color: black;
+/*	border-radius: 8px;*/
+/*    border-color: black;*/
 
-    background-color: white;
+/*    background-color: white;*/
 
-    font-size: 3vw;
-}
-		
-.buttons button:active {
-	outline-color: black;
-    outline-style: solid;
-    outline-width: 4px;
-}
+/*    font-size: 3vw;*/
+/*}*/
+/*		*/
+/*.buttons button:active {*/
+/*	outline-color: black;*/
+/*    outline-style: solid;*/
+/*    outline-width: 4px;*/
+/*}*/
