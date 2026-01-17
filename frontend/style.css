@@ -69,11 +69,7 @@ input {
 /*}*/
 
 .card p {
-    font-size: 6vh;
-}
-
-.card p {
-    margin-left : 8px;
+    margin: 0.5rem;
     font-size: 2.8vw;
 }
 

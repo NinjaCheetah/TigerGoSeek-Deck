@@ -25,7 +25,8 @@ async function updateDisplay(hand) {
     for(let i = 0; i < hand.length; i++) {
         let cardDiv = `
         <div class="col-6">
-            <div class="card" id="card${i}div"><h2>${hand[i]["title"]}</h2>
+            <div class="card" id="card${i}div">
+                <h2 style="padding-top: 1rem;">${hand[i]["title"]}</h2>
                 <p>${hand[i]["description"]}</p>
                 <p><b>${hand[i]["cost"]}</b></p>
                 <input type="checkbox" id="card${i}" name="card" value="card${hand[i]["id"]}"/>
