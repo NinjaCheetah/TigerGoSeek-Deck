@@ -1,30 +1,30 @@
 [
     {
         "id": 0,
-        "count": 5,
-        "title": "2 Minute Time Bonus",
+        "count": 14,
+        "title": "2 Minute Bonus",
         "description": "Add 2 minutes to your final hiding time.",
         "cost": ""
     },
     {
         "id": 1,
-        "count": 5,
-        "title": "5 Minute Time Bonus",
+        "count": 9,
+        "title": "5 Minute Bonus",
         "description": "Add 5 minutes to your final hiding time.",
         "cost": ""
     },
         {
         "id": 2,
-        "count": 2,
-        "title": "10 Minute Time Bonus",
+        "count": 3,
+        "title": "10 Minute Bonus",
         "description": "Add 10 minutes to your final hiding time.",
         "cost": ""
     },
     {
         "id": 3,
-        "count": 5,
+        "count": 3,
         "title": "Veto",
-        "description": "Play this card instead of answering a question asked by the seekers.",
+        "description": "Play this card instead of answering a question asked by the seekers. The seekers may choose to ask the question again for double the price.",
         "cost": ""
     },
     {
@@ -37,15 +37,155 @@
     {
         "id": 5,
         "count": 1,
-        "title":"Curse of the Underground Informant",
-        "description":"Before the seekers can ask another question, they must find a copy of Gracie's Dinnertime Theater.",
-        "cost":"Discard a curse. This curse expires after 15 minutes."
+        "title":"Curse of the Furry Stickers",
+        "description": "Before the seekers can ask another question, they must find and take a picture of a furry sticker stuck to something on campus.",
+        "cost": "Discard a card."
     },
     {
         "id": 6,
         "count": 1,
+        "title":"Curse of the Photoshoot",
+        "description": "Before the seekers can ask another question, they must find an RIT logo and take a group picture in front of it.",
+        "cost": "Discard a card."
+    },
+    {
+        "id": 7,
+        "count": 1,
+        "title":"Curse of the Tunnels",
+        "description": "For the next 20 minutes, the seekers must use tunnels to travel between buildings wherever possible. They may not enter a building through doors or building connections unless in the tunnels. If a building does not have any tunnel connections, this can be ignored.",
+        "cost": "Discard two cards."
+    },
+    {
+        "id": 8,
+        "count": 1,
+        "title":"Curse of the Specific Appetite",
+        "description": "Before the seekers can ask another question, they must locate and buy a specified food item from a dining location or vending machine.",
+        "cost": "Buy the desired food item yourself first (with a price limit of ~$5)."
+    },
+    {
+        "id": 9,
+        "count": 1,
+        "title":"Curse of the Nostalgic Student",
+        "description": "Before the seekers can ask another question, they must visit a classroom that at least one seeker has previously had a class in.",
+        "cost": "You must be indoors."
+    },
+    {
+        "id": 10,
+        "count": 1,
+        "title":"Curse of the Jammed Door",
+        "description": "For the next 30 minutes, the seekers must roll two dice before entering any door. To enter the door, they must roll at least a 7. If they fail the roll, they must wait 5 minutes before trying again.",
+        "cost": ""
+    },
+    {
+        "id": 11,
+        "count": 1,
+        "title":"Curse of the One Timer",
+        "description": "Before the seekers can ask another question, they must find a stick off the ground and hit a rock 30 feet with it, hockey style.",
+        "cost": "Discard two cards."
+    },
+    {
+        "id": 12,
+        "count": 1,
+        "title":"Curse of ROAR PLUS",
+        "description": "Before the seekers can ask another question, they must travel to Gracie's and stand there for 90 seconds, to make sure they really take it in.",
+        "cost": "You must have at least three other cards. Discard your entire hand."
+    },
+    {
+        "id": 13,
+        "count": 1,
+        "title":"Curse of the Underground Informant",
+        "description": "Before the seekers can ask another question, they must find a copy of Gracie's Dinnertime Theater.",
+        "cost": "Discard a curse. This curse expires after 15 minutes."
+    },
+    {
+        "id": 14,
+        "count": 1,
         "title":"Curse of the Fowlest Player",
-        "description":"The seekers must do an improv scene for the length of time bonus that the hider discards to play this curse, up to 10 minutes, longform style. The players may play multiple characters, clap people out, and change locations but the universe must stay the same.",
-        "cost":"Discard time bonuses."
+        "description": "The seekers must do an improv scene for the length of time bonus that the hider discards to play this curse, up to 10 minutes, longform style. The players may play multiple characters, clap people out, and change locations but the universe must stay the same.",
+        "cost": "Discard time bonuses equal to the desired scene length."
+    },
+    {
+        "id": 15,
+        "count": 1,
+        "title": "Curse of the Back Roads",
+        "description": "For the next 30 minutes, the seekers cannot travel along the Quarter Mile.",
+        "cost": "Discard another curse."
+    },
+    {
+        "id": 16,
+        "count": 1,
+        "title": "Curse of the Unloaded Latke",
+        "description": "Before the seekers can ask another question, they must visit a closed dining location. The seekers cannot consult TigerDine or the RIT Dining website to check times.",
+        "cost": "Discard two cards."
+    },
+    {
+        "id": 17,
+        "count": 1,
+        "title": "Curse of the Sinful Campus",
+        "description": "Before the seekers can ask another question, they must find a poster, sticker, flag, or any material mentioning something about gender or sexuality.",
+        "cost": "Discard a time bonus."
+    },
+    {
+        "id": 18,
+        "count": 1,
+        "title": "Curse of the No Voice Zone",
+        "description": "For the next 15 minutes, the seekers cannot communicate verbally.",
+        "cost": "Send a video of yourself signing a sentence containing at least 5 words."
+    },
+    {
+        "id": 19,
+        "count": 1,
+        "title": "Curse of the Drained Brain",
+        "description": "Choose 2 questions from the question menu that haven't been asked yet. The seekers can no longer ask these questions for the remainder of the round.",
+        "cost": "Discard your entire hand."
+    },
+    {
+        "id": 20,
+        "count": 1,
+        "title": "Curse of the Bird Guide",
+        "description": "Film a bird for as long as you can, with a maximum of 15 minutes. If the bird leaves the frame, your recording time ends then. The seekers may not ask another question until they successfully record a bird for as you did.",
+        "cost": "Take a video of a bird, but do not send it to the seekers."
+    },
+    {
+        "id": 21,
+        "count": 1,
+        "title": "Curse of the Zoologist",
+        "description": "Take a photo of a wild fish, bird, mammal, repile, amphibian, or bug. Before the seekers can ask another question, they must take a picture of a wild animal in the sam category as yours.",
+        "cost": "Take a photo of a wild animal and send it to the seekers."
+    },
+    {
+        "id": 22,
+        "count": 1,
+        "title": "Curse of the Terminally Offline",
+        "description": "For the next 10 minutes, the seekers may not use their phones (excluding time-sensitive issues).",
+        "cost": "Discard a card."
+    },
+    {
+        "id": 23,
+        "count": 1,
+        "title": "Curse of the College Advertisement",
+        "description": "Before the seekers can ask another question, they must recreate a photo found on the RIT website. The photo has to include at least 75% of the original photo, excluding variables like movable objects and people.",
+        "cost": "Discard a time bonus."
+    },
+    {
+        "id": 24,
+        "count": 1,
+        "title": "Curse of the Colorblind",
+        "description": "For the remainder of the round, you may send all photos requested by the seekers in greyscale.",
+        "cost": "Send any photo from the photo question category in greyscale."
+    },
+    {
+        "id": 25,
+        "count": 1,
+        "title": "Curse of the Silent Scissorer",
+        "description": "Before the seekers can ask another question, they must win a game of rock paper scissors against a stranger. They must approach their opponent silently and start a game without saying anything, and must win best out of three. If they lose, they must wait 2 minutes and try again against a new opponent.",
+        "cost": "Send a photo of a rock, a piece of paper, or a pair of scissors."
+    },
+    {
+        "id": 26,
+        "count": 1,
+        "title": "Curse of the Awkward College Student",
+        "description": "Before the seekers can ask another question, they must take a selfie with a stranger.",
+        "cost": "Take a selfie with a stranger and send it to the seekers."
     }
 ]

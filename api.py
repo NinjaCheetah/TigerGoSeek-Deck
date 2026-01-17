@@ -15,7 +15,7 @@ app = FastAPI()
 origins = [
     "http://localhost:4000",
     "http://127.0.0.1:4000",
-    "https://rithideandseek.ninjacheetah.dev",
+    "https://tigergoseek.ninjacheetah.dev",
 ]
 
 app.add_middleware(
@@ -38,10 +38,11 @@ app.add_middleware(
 )
 def reset_player(username: str):
     username = username.lower()
-    hand = reset_player_data(username)
+    hand, cards_remaining = reset_player_data(username)
     content = {
         "message": "OK",
         "hand": hand,
+        "cards_remaining": cards_remaining
     }
     return JSONResponse(content=content)
 
@@ -58,7 +59,7 @@ def reset_player(username: str):
 )
 def draw_card(username: str):
     username = username.lower()
-    hand = draw_card_for_player(username)
+    hand, cards_remaining = draw_card_for_player(username)
     if hand is None:
         content = {
             "message": "Player {} has an invalid hand or deck.".format(username),
@@ -67,7 +68,8 @@ def draw_card(username: str):
     else:
         content = {
             "message": "OK",
-            "hand": hand
+            "hand": hand,
+            "cards_remaining": cards_remaining
         }
     return JSONResponse(content=content)
 
@@ -84,7 +86,7 @@ def draw_card(username: str):
 )
 def discard_card(username: str, card_id: int):
     username = username.lower()
-    hand = discard_card_for_player(username, card_id)
+    hand, cards_remaining = discard_card_for_player(username, card_id)
     if hand is None:
         content = {
             "message": "Player {} has an invalid hand or deck.".format(username),
@@ -93,7 +95,8 @@ def discard_card(username: str, card_id: int):
     else:
         content = {
             "message": "OK",
-            "hand": hand
+            "hand": hand,
+            "cards_remaining": cards_remaining
         }
     return JSONResponse(content=content)
 
@@ -110,10 +113,11 @@ def discard_card(username: str, card_id: int):
 )
 def hello(username: str):
     username = username.lower()
-    hand = get_hand_for_player(username)
+    hand, cards_remaining = get_hand_for_player(username)
     content = {
         "message": "OK",
         "hand": hand,
+        "cards_remaining": cards_remaining
     }
     return JSONResponse(content=content)
 
