@@ -15,10 +15,9 @@
             <h1 style="font-weight: bold">TigerGoSeek<span style="font-size: 1.5vw; color: dimgray;">Beta</span></h1>
             <h3>Hider View</h3>
         </div>
-        <div id="username_div" class="buttons">
-            <p>Enter a Username</p>
-            <input type="text" class="form-control" id="username_entry"/>
-            <button type="button" id="btn_get_hand">Get Hand</button>
+        <div id="username_div">
+            <label for="username_entry">Enter a Username</label><input type="text" class="form-control" id="username_entry"/>
+            <button class="btn btn-light" type="button" id="btn_get_hand">Get Hand</button>
         </div>
 
         <div class="main" id="mainDiv">
@@ -26,13 +25,12 @@
                 <button class="btn btn-light" type="button" id="btn_draw">Draw Card</button>
                 <button class="btn btn-light" type="button" id="btn_discard">Discard Selected Cards</button>
             </div>
-            <div id="hand_div">
-                <div class="container">
+            <div class="container-fluid">
+                <div id="hand_div" class="row" style="margin-bottom: 1rem;">
                     <p id="null_card"></p>
                 </div>
             </div>
-
-            <div class="text-center">
+            <div class="text-center" style="margin-bottom: 1rem;">
                 <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#resetHandConfirm">
                     Reset Hand
                 </button>

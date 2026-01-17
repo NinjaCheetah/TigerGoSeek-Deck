@@ -37,12 +37,6 @@ input {
     display: none
 }
 
-.buttons {
-    display: flex;
-	column-gap: 20px;
-    justify-content: center;
-}
-
 #username_div {
     display: inline;
 	column-gap: 20px;
@@ -50,20 +44,29 @@ input {
 }
 
 .card {
-    display: block;
-
     background-color: white;
     border-radius: 8px;
-
     outline: black solid 4px;
-
-    max-width: 32vw; min-width: 32vw;
-    max-height: fit-content; min-height: 58vw;
-
     transition: .5s;
-
-    margin: 1vh auto;
+    margin: 1rem;
+    max-height: fit-content; min-height: 58vw;
 }
+
+/*.card {*/
+/*    !*display: block;*!*/
+
+/*    background-color: white;*/
+/*    border-radius: 8px;*/
+
+/*    outline: black solid 4px;*/
+
+/*    max-width: 32vw; min-width: 32vw;*/
+/*    max-height: fit-content; min-height: 58vw;*/
+
+/*    transition: .5s;*/
+
+/*    margin: 1vh auto;*/
+/*}*/
 
 .card p {
     font-size: 6vh;
@@ -82,15 +85,21 @@ input {
     background-color: gainsboro;
 }
 
-#hand_div {
-    display: block;
-    position: relative;
-    right: 18.5vw;
-}
+/*#hand_div {*/
+/*    display: block;*/
+/*    position: relative;*/
+/*    right: 18.5vw;*/
+/*}*/
 
-#cardSelect {
-    display: flex;
-}
+/*#cardSelect {*/
+/*    display: flex;*/
+/*}*/
+
+/*.buttons {*/
+/*    display: flex;*/
+/*	column-gap: 20px;*/
+/*    justify-content: center;*/
+/*}*/
 
 /*.buttons button {*/
 /*	border: none;*/
