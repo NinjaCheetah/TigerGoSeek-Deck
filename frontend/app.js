@@ -7,7 +7,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn_get_hand").onclick = getHand;
     document.getElementById("btn_draw").onclick = drawCard;
-    document.getElementById("btn_reset").onclick = resetHand;
     document.getElementById("btn_discard").onclick = discardSelectedCards;
 
     parseURLParameters().then();
