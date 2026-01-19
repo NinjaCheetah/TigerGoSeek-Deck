@@ -205,13 +205,6 @@
     {
         "id": 29,
         "count": 1,
-        "title": "Curse of the Elevator",
-        "description": "Before the seekers can ask another question, they must travel a total of 20 floors on an elevator.",
-        "cost": "Send the hiders your exact elevation."
-    }
-    {
-        "id": 30,
-        "count": 1,
         "title": "Curse of the Gilded Inquiry",
         "description": "Choose a question to gild. If the seekers ask that question, it is immediately vetoed and you draw three extra cards.",
         "cost": "The seekers next question is free."
