@@ -32,11 +32,6 @@ input {
     font-size: 1.6vw;
 }
 
-/* By default, hide main div and show username */
-#mainDiv {
-    display: none
-}
-
 #username_div {
     display: inline;
 	column-gap: 20px;

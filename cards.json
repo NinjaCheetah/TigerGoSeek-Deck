@@ -187,21 +187,21 @@
         "title": "Curse of the Awkward College Student",
         "description": "Before the seekers can ask another question, they must take a selfie with a stranger.",
         "cost": "Take a selfie with a stranger and send it to the seekers."
-    }
+    },
     {
         "id": 27,
         "count": 1,
         "title": "Curse of the Sardine",
         "description": "The seekers are now split, as in the game sardines. They ask the hider questions outside of the group chat. The seeker has twice as long to answer. Any seeker before the last who finds the hider joins them. Every second they spend with the hider is added to their run timer, either retroactively if they have already gone or for their future run.",
         "cost": "The cost for the rest of the seekers questions is draw 1. That's it. You literally changed the game... what the hell man."
-    }
+    },
     {
         "id": 28,
         "count": 1,
         "title": "Curse of the Elevator",
         "description": "Before the seekers can ask another question, they must travel a total of 20 floors on an elevator.",
         "cost": "Send the hiders your exact elevation."
-    }
+    },
     {
         "id": 29,
         "count": 1,

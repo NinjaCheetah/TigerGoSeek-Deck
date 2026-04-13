@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>TigerGoSeek</title>
         <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
-        <script src="/app.js"></script>
+        <script src="/src/login.js" type="module"></script>
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://rsms.me/">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -13,46 +13,11 @@
     <body>
         <div class="page-header text-center">
             <h1 style="font-weight: bold">TigerGoSeek<span style="font-size: 1.5vw; color: dimgray;">Beta</span></h1>
-            <h3>Hider View</h3>
+            <h3>Login</h3>
         </div>
         <div id="username_div">
             <label for="username_entry">Enter a Username</label><input type="text" class="form-control" id="username_entry"/>
-            <button class="btn btn-light" type="button" id="btn_get_hand">Get Hand</button>
-        </div>
-
-        <div class="main" id="mainDiv">
-            <div class="text-center">
-                <button class="btn text-white" style="background: #F76900;" type="button" id="btn_draw">Draw Card</button>
-                <button class="btn btn-light" type="button" id="btn_discard">Discard Selected Cards</button>
-            </div>
-            <div class="container-fluid">
-                <div id="hand_div" class="row" style="margin-bottom: 1rem;">
-                    <p id="null_card"></p>
-                </div>
-            </div>
-            <div class="text-center" style="margin-bottom: 1rem;">
-                <button class="btn btn-light" type="button" data-bs-toggle="modal" data-bs-target="#resetHandConfirm">
-                    Reset Hand
-                </button>
-            </div>
-        </div>
-
-        <div class="modal fade" id="resetHandConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="resetHandConfirmLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="resetHandConfirmLabel">Reset hand?</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <p>Are you sure you want to reset your hand? The seekers are not responsible for any cards lost due to an untimely hand wipe.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn text-white" data-bs-dismiss="modal" style="background: #F76900;" onclick="resetHand()" href="javascript:void(0);">Confirm</button>
-              </div>
-            </div>
-          </div>
+            <button class="btn btn-light" type="button" id="btn_login">Log In as Hider</button>
         </div>
     </body>
 </html>

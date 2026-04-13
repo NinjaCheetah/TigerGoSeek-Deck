@@ -138,4 +138,4 @@ def health_check():
 
 @app.get("/")
 def hello_world():
-  return "You've reached api.rithideandseek.ninjacheetah.dev. no snooping!"
+  return "You've reached api.tigergoseek.ninjacheetah.dev. no snooping!"
