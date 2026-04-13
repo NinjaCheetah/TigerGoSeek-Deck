@@ -31,6 +31,14 @@ async function getCards() {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
         await updateDisplay(apiResponse["hand"]);
+
+        // Handle a situation where there is still a pending multi selection so that
+        // the player doesn't get softlocked.
+        const awaitingSelection = apiResponse["awaiting_selection"];
+        if (awaitingSelection.length !== 0) {
+            console.log("multi-select was in progress, displaying modal");
+            await displayMultiSelect(awaitingSelection);
+        }
     } catch (e) {
         console.error(e);
         console.error("failed to get player's hand, read error above");
@@ -125,6 +133,37 @@ async function resetHand() {
     }
 }
 
+async function displayMultiSelect(cards) {
+    console.log("updating multi-select HTML");
+
+    document.getElementById("multi_select_div").innerHTML = `<p id="multi_select_null_card"></p>`;
+
+    // For each card, add it to a row
+    for(let i = 0; i < cards.length; i++) {
+        let cardDiv = `
+        <div class="col-6">
+            <div class="card" id="selectcard${i}div">
+                <h2 style="padding-top: 1rem;">${cards[i]["title"]}</h2>
+                <p>${cards[i]["description"]}</p>
+                <p><b>${cards[i]["cost"]}</b></p>
+                <input type="checkbox" id="selectcard${i}" name="selectcard" value="selectcard${cards[i]["id"]}"/>
+            </div>
+        </div>
+        `;
+
+        document.getElementById(`multi_select_null_card`).insertAdjacentHTML("afterend", cardDiv);
+
+        // Checkbox functionality for clicking the whole card
+        document.getElementById(`selectcard${i}div`).addEventListener("click", () => {
+            console.log(`multi-select card ${i} clicked`);
+            document.getElementById(`selectcard${i}`).checked = !document.getElementById(`selectcard${i}`).checked;
+        });
+    }
+
+    let modal = new bootstrap.Modal(document.getElementById("multiSelectChoose"));
+    modal.show();
+}
+
 async function drawPick2() {
     await drawPickX(2);
 }
@@ -141,36 +180,8 @@ async function drawPickX(count) {
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
-        const choices = apiResponse["cards"];
-
-        console.log("updating multi-select HTML");
-
-        document.getElementById("multi_select_div").innerHTML = `<p id="multi_select_null_card"></p>`;
-
-        // For each card, add it to a row
-        for(let i = 0; i < choices.length; i++) {
-            let cardDiv = `
-            <div class="col-6">
-                <div class="card" id="selectcard${i}div">
-                    <h2 style="padding-top: 1rem;">${choices[i]["title"]}</h2>
-                    <p>${choices[i]["description"]}</p>
-                    <p><b>${choices[i]["cost"]}</b></p>
-                    <input type="checkbox" id="selectcard${i}" name="selectcard" value="selectcard${choices[i]["id"]}"/>
-                </div>
-            </div>
-            `;
-
-            document.getElementById(`multi_select_null_card`).insertAdjacentHTML("afterend", cardDiv);
-
-            // Checkbox functionality for clicking the whole card
-            document.getElementById(`selectcard${i}div`).addEventListener("click", () => {
-                console.log(`multi-select card ${i} clicked`);
-                document.getElementById(`selectcard${i}`).checked = !document.getElementById(`selectcard${i}`).checked;
-            });
-        }
-
-        let modal = new bootstrap.Modal(document.getElementById("multiSelectChoose"));
-        modal.show();
+        const cards = apiResponse["cards"];
+        await displayMultiSelect(cards);
     } catch (e) {
         console.error(e);
         console.error("failed to draw cards for selection for player, read error above");

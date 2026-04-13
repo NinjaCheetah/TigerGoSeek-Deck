@@ -3,7 +3,6 @@
 # https://github.com/NinjaCheetah/RIT-Hide-and-Seek-Deck
 #
 # Provides the base API routes required on the backend to manage players' decks.
-from certifi import contents
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -167,11 +166,12 @@ def confirm_pick(username: str, card_id: int):
 )
 def hello(username: str):
     username = username.lower()
-    hand, cards_remaining = get_hand_for_player(username)
+    hand, cards_remaining, awaiting_selection = get_state_for_player(username)
     content = {
         "message": "OK",
         "hand": hand,
-        "cards_remaining": cards_remaining
+        "cards_remaining": cards_remaining,
+        "awaiting_selection": awaiting_selection
     }
     return JSONResponse(content=content)
 

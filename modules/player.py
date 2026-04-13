@@ -55,7 +55,7 @@ def reset_player_data(username: str) -> Tuple[list, int]:
     return players[username]["hand"], len(players[username]["deck"])
 
 
-def get_hand_for_player(username: str) -> Tuple[list, int]:
+def get_state_for_player(username: str) -> Tuple[list, int, list]:
     with open("players.json", "r") as file:
         original_content = file.read()
 
@@ -88,7 +88,7 @@ def get_hand_for_player(username: str) -> Tuple[list, int]:
         with open("players.json", "w") as file:
             file.write(new_content)
 
-    return players[username]["hand"], len(players[username]["deck"])
+    return players[username]["hand"], len(players[username]["deck"]), players[username]["awaiting_selection"]
 
 
 def draw_card_for_player(username: str) -> Tuple[list, int] | None:
