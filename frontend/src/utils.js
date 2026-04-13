@@ -4,8 +4,8 @@
 //
 // Provides the frontend code for interacting with the backend to display players' cards and trigger updates to them.
 
-const API_URL = "http://localhost:8000"
-//const API_URL = "https://api.tigergoseek.ninjacheetah.dev"
+//const API_URL = "http://localhost:8000"
+const API_URL = "https://api.tigergoseek.ninjacheetah.dev"
 
 // Updates the current URL with the set parameters so that they won't get lost if the page reloads.
 // async function updateURL(username) {
