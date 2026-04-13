@@ -3,7 +3,7 @@
 # https://github.com/NinjaCheetah/RIT-Hide-and-Seek-Deck
 #
 # Provides the base API routes required on the backend to manage players' decks.
-
+from certifi import contents
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -100,6 +100,60 @@ def discard_card(username: str, card_id: int):
         }
     return JSONResponse(content=content)
 
+
+@app.get(
+    "/hider/{username}/draw_pick/{count}",
+    response_class=JSONResponse,
+    responses={
+        200: {
+            "content": {"application/json": {}},
+            "description": "Draws multiple cards and presents them to a player to select from."
+        }
+    }
+)
+def draw_pick(username: str, count: int):
+    username = username.lower()
+    cards, cards_remaining = draw_pick_x_for_player(username, count)
+    if cards is None:
+        content = {
+            "message": "Could not draw cards for selection for {}.".format(username),
+            "cards": None,
+            "cards_remaining": cards_remaining
+        }
+    else:
+        content = {
+            "message": "OK",
+            "cards": cards,
+            "cards_remaining": cards_remaining
+        }
+    return JSONResponse(content=content)
+
+
+@app.get(
+    "/hider/{username}/confirm_pick/{card_id}",
+    response_class=JSONResponse,
+    responses={
+        200: {
+            "content": {"application/json": {}},
+            "description": "Confirms which multi-selection card should be added to a player's hand."
+        }
+    }
+)
+def confirm_pick(username: str, card_id: int):
+    username = username.lower()
+    hand, cards_remaining = pick_from_pending_for_player(username, card_id)
+    if hand is None:
+        content = {
+            "message": "Player {} has an invalid hand or deck.".format(username),
+            "hand": None
+        }
+    else:
+        content = {
+            "message": "OK",
+            "hand": hand,
+            "cards_remaining": cards_remaining
+        }
+    return JSONResponse(content=content)
 
 @app.get(
     "/hider/{username}/hello",

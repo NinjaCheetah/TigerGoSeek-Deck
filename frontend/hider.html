@@ -18,7 +18,16 @@
 
         <div class="main" id="mainDiv">
             <div class="text-center">
-                <button class="btn text-white" style="background: #F76900;" type="button" id="btn_draw">Draw Card</button>
+                <div class="btn-group">
+                    <button type="button" class="btn text-white" style="background: #F76900;" id="btn_draw">Draw Card</button>
+                    <button type="button" class="btn text-white dropdown-toggle dropdown-toggle-split" style="background: #F76900;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="btn_draw_2_pick_1">Draw 2 Pick 1</a></li>
+                        <li><a class="dropdown-item" href="#" id="btn_draw_3_pick_1">Draw 3 Pick 1</a></li>
+                    </ul>
+                </div>
                 <button class="btn btn-light" type="button" id="btn_discard">Discard Selected Cards</button>
             </div>
             <div class="container-fluid">
@@ -47,6 +56,27 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn text-white" data-bs-dismiss="modal" style="background: #F76900;" id="btn_reset">Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="multiSelectChoose" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="multiSelectChooseLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="multiSelectChooseLabel">Choose Your Cards</h1>
+              </div>
+              <div class="modal-body">
+                  <p>Choose the card that you'd like the add to your hand, then press confirm.</p>
+                  <div class="container-fluid">
+                      <div id="multi_select_div" class="row" style="margin-bottom: 1rem;">
+                          <p id="multi_select_null_card"></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn text-white" style="background: #F76900;" id="btn_confirm_multi_select">Confirm</button>
               </div>
             </div>
           </div>

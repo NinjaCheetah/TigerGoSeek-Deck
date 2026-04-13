@@ -42,7 +42,8 @@ def reset_player_data(username: str) -> Tuple[list, int]:
 
     players[username] = {
         "deck": build_deck(),
-        "hand": []
+        "hand": [],
+        "awaiting_selection": [],
     }
 
     new_content = json.dumps(players, indent=4)
@@ -156,3 +157,77 @@ def discard_card_for_player(username: str, card_id: int) -> Tuple[list, int] | N
             file.write(new_content)
 
     return hand, len(players[username]["deck"])
+
+
+def draw_pick_x_for_player(username: str, count: int) -> Tuple[list | None, int | None]:
+    with open("players.json", "r") as file:
+        original_content = file.read()
+
+    try:
+        players = json.loads(original_content)
+    except json.JSONDecodeError:
+        return None, None
+
+    if username not in players.keys():
+        return None, None
+
+    player = players[username]
+
+    if len(player["deck"]) < count:
+        return None, len(player["deck"])
+
+    if len(player["hand"]) == 6:
+        return None, len(player["deck"])
+
+    if len(player["awaiting_selection"]) != 0:
+        return None, len(player["deck"])
+
+    for _ in range(count):
+        target_index = random.randint(0, len(player["deck"]) - 1)
+        player["awaiting_selection"].append(player["deck"].pop(target_index))
+
+    players[username] = player
+    new_content = json.dumps(players, indent=4)
+
+    if new_content != original_content:
+        with open("players.json", "w") as file:
+            file.write(new_content)
+
+    return player["awaiting_selection"], len(player["deck"])
+
+
+def pick_from_pending_for_player(username: str, card_id: int) -> Tuple[list| None, int | None]:
+    with open("players.json", "r") as file:
+        original_content = file.read()
+
+    try:
+        players = json.loads(original_content)
+    except json.JSONDecodeError:
+        # Can't even load the JSON most likely means no players, so treat it the same as the requested player
+        # not existing.
+        return None, None
+
+    # Player doesn't exist, so they can't have a hand to operate on.
+    if username not in players.keys():
+        return None, None
+
+    player = players[username]
+    if len(player["awaiting_selection"]) == 0:
+        return None, len(player["deck"])
+
+    choices = player["awaiting_selection"]
+    for i in range(len(choices)):
+        if choices[i]["id"] == card_id:
+            player["hand"].append(player["awaiting_selection"].pop(i))
+            break
+
+    player["awaiting_selection"] = []
+
+    players[username] = player
+    new_content = json.dumps(players, indent=4)
+
+    if new_content != original_content:
+        with open("players.json", "w") as file:
+            file.write(new_content)
+
+    return players[username]["hand"], len(players[username]["deck"])
