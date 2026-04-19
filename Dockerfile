@@ -12,4 +12,8 @@ RUN pip install -r requirements.txt
 
 COPY . /srv/tigergoseek
 
+# Need to init players.json. In the future this should probaby be stored
+# persistently, but for right now I'll just drop the players on restart.
+RUN touch players.json
+
 ENTRYPOINT ["uvicorn", "api:app", "--host=0.0.0.0", "--port=4567"]
