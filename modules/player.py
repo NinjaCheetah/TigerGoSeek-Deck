@@ -72,14 +72,11 @@ def get_state_for_player(username: str) -> Tuple[list, int, list]:
         if "hand" not in player.keys():
             player["hand"] = []
 
-        if len(player["deck"]) == 0:
-            player["deck"] = build_deck()
-
         players[username] = player
 
     # Player doesn't exist, so give them an empty hand and deck.
     else:
-        player = {"deck": build_deck(), "hand": []}
+        player = {"deck": build_deck(), "hand": [], "awaiting_selection": []}
         players[username] = player
 
     # Write out updated data and return the player's hand.
@@ -91,7 +88,7 @@ def get_state_for_player(username: str) -> Tuple[list, int, list]:
     return players[username]["hand"], len(players[username]["deck"]), players[username]["awaiting_selection"]
 
 
-def draw_card_for_player(username: str) -> Tuple[list, int] | None:
+def draw_card_for_player(username: str) -> Tuple[list, int, str] | None:
     with open("players.json", "r") as file:
         original_content = file.read()
 
@@ -109,11 +106,11 @@ def draw_card_for_player(username: str) -> Tuple[list, int] | None:
     player = players[username]
     # Deck has no cards, return current hand with no modification.
     if len(player["deck"]) == 0:
-        return player["hand"], len(player["deck"])
+        return player["hand"], len(player["deck"]), "warn.deckempty"
 
     # Player is at the maximum hand size, return current hand with no modification.
     if len(player["hand"]) == 6:
-        return player["hand"], len(player["deck"])
+        return player["hand"], len(player["deck"]), "warn.handfull"
 
     target_index = random.randint(0, len(player["deck"]) - 1)
     player["hand"].append(player["deck"].pop(target_index))
@@ -125,7 +122,7 @@ def draw_card_for_player(username: str) -> Tuple[list, int] | None:
         with open("players.json", "w") as file:
             file.write(new_content)
 
-    return player["hand"], len(player["deck"])
+    return player["hand"], len(player["deck"]), "ok"
 
 
 def discard_card_for_player(username: str, card_id: int) -> Tuple[list, int] | None:
@@ -159,28 +156,28 @@ def discard_card_for_player(username: str, card_id: int) -> Tuple[list, int] | N
     return hand, len(players[username]["deck"])
 
 
-def draw_pick_x_for_player(username: str, count: int) -> Tuple[list | None, int | None]:
+def multi_draw_for_player(username: str, count: int) -> Tuple[list | None, int | None, str]:
     with open("players.json", "r") as file:
         original_content = file.read()
 
     try:
         players = json.loads(original_content)
     except json.JSONDecodeError:
-        return None, None
+        return None, None, "error.internal"
 
     if username not in players.keys():
-        return None, None
+        return None, None, "error.playernotfound"
 
     player = players[username]
 
     if len(player["deck"]) < count:
-        return None, len(player["deck"])
+        return None, len(player["deck"]), "warn.decktoosmall"
 
     if len(player["hand"]) == 6:
-        return None, len(player["deck"])
+        return None, len(player["deck"]), "warn.handfull"
 
     if len(player["awaiting_selection"]) != 0:
-        return None, len(player["deck"])
+        return None, len(player["deck"]), "warn.multiinprogress"
 
     for _ in range(count):
         target_index = random.randint(0, len(player["deck"]) - 1)
@@ -193,7 +190,7 @@ def draw_pick_x_for_player(username: str, count: int) -> Tuple[list | None, int 
         with open("players.json", "w") as file:
             file.write(new_content)
 
-    return player["awaiting_selection"], len(player["deck"])
+    return player["awaiting_selection"], len(player["deck"]), "ok"
 
 
 def pick_from_pending_for_player(username: str, card_id: int) -> Tuple[list| None, int | None]:

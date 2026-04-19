@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn_discard").onclick = discardSelectedCards;
     document.getElementById("btn_reset").onclick = resetHand;
     document.getElementById("btn_logout").onclick = utils.logOut;
-    document.getElementById("btn_draw_2_pick_1").onclick = drawPick2;
-    document.getElementById("btn_draw_3_pick_1").onclick = drawPick3;
+    document.getElementById("btn_draw_2_pick_1").onclick = drawMulti2;
+    document.getElementById("btn_draw_3_pick_1").onclick = drawMulti3;
     document.getElementById('btn_confirm_multi_select').onclick = multiSelectConfirm;
 
     getCards().then();
@@ -84,6 +84,10 @@ async function drawCard() {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
         await updateDisplay(apiResponse["hand"]);
+
+        if (apiResponse["status"] !== "ok") {
+            await handleNonOkStatus(apiResponse["status"]);
+        }
     } catch (e) {
         console.error(e);
         console.error("failed to draw card for player, read error above");
@@ -164,24 +168,30 @@ async function displayMultiSelect(cards) {
     modal.show();
 }
 
-async function drawPick2() {
-    await drawPickX(2);
+async function drawMulti2() {
+    await drawMulti(2);
 }
 
-async function drawPick3() {
-    await drawPickX(3);
+async function drawMulti3() {
+    await drawMulti(3);
 }
 
-async function drawPickX(count) {
+async function drawMulti(count) {
     let username = await utils.getCookie("username");
     console.log(`drawing ${count} cards to choose from for player ${username}`);
 
-    const targetUrl = `${utils.API_URL}/hider/${username}/draw_pick/${count}`
+    const targetUrl = `${utils.API_URL}/hider/${username}/draw_multi/${count}`
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
-        const cards = apiResponse["cards"];
-        await displayMultiSelect(cards);
+
+
+        if (apiResponse["status"] === "ok") {
+            const cards = apiResponse["cards"];
+            await displayMultiSelect(cards);
+        } else {
+            await handleNonOkStatus(apiResponse["status"]);
+        }
     } catch (e) {
         console.error(e);
         console.error("failed to draw cards for selection for player, read error above");
@@ -226,4 +236,20 @@ async function multiSelectConfirm() {
     }
 
     modal.hide();
+}
+
+async function handleNonOkStatus(status) {
+    let targetToast;
+        if (status === "warn.handfull") {
+            targetToast = document.getElementById('toast_hand_full');
+        } else if (status === "warn.deckempty") {
+            targetToast = document.getElementById('toast_deck_empty');
+        } else if (status === "warn.decktoosmall") {
+            targetToast = document.getElementById('toast_deck_too_small');
+        } else {
+            targetToast = document.getElementById("toast_unknown_error");
+        }
+
+        const toast = bootstrap.Toast.getOrCreateInstance(targetToast);
+        toast.show();
 }

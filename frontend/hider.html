@@ -30,8 +30,53 @@
                 </div>
                 <button class="btn btn-light" type="button" id="btn_discard">Discard Selected Cards</button>
             </div>
+
+            <div class="toast-container p-3 bottom-0 start-50 translate-middle-x">
+                <div class="toast align-items-center text-bg-danger border-0" role="alert" id="toast_hand_full" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Your hand is full! Play or discard a card before drawing another.
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toast-container p-3 bottom-0 start-50 translate-middle-x">
+                <div class="toast align-items-center text-bg-danger border-0" role="alert" id="toast_deck_too_small" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            There aren't enough cards in your deck to draw multiple!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toast-container p-3 bottom-0 start-50 translate-middle-x">
+                <div class="toast align-items-center text-bg-danger border-0" role="alert" id="toast_deck_empty" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Your deck is empty! You can't draw any more cards.
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toast-container p-3 bottom-0 start-50 translate-middle-x">
+                <div class="toast align-items-center text-bg-danger border-0" role="alert" id="toast_unknown_error" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Oops, an unknown error has occurred! Please report this.
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
             <div class="container-fluid">
-                <div id="hand_div" class="row" style="margin-bottom: 1rem;">
+                <div id="hand_div" class="row card_div" style="margin-bottom: 1rem;">
                     <p id="null_card"></p>
                 </div>
             </div>
@@ -70,7 +115,7 @@
               <div class="modal-body">
                   <p>Choose the card that you'd like the add to your hand, then press confirm.</p>
                   <div class="container-fluid">
-                      <div id="multi_select_div" class="row" style="margin-bottom: 1rem;">
+                      <div id="multi_select_div" class="row card_div" style="margin-bottom: 1rem;">
                           <p id="multi_select_null_card"></p>
                       </div>
                   </div>

@@ -20,7 +20,7 @@ body {
     font-size: 3vw;
 }
 
-#hand_div h2 {
+.card_div h2 {
 	text-align: center;
     font-size: 3.2vw;
     margin-left: .4vw;
@@ -43,7 +43,7 @@ input {
     border-radius: 8px;
     outline: black solid 4px;
     transition: .5s;
-    margin: 0.5rem;
+    margin: 0.5rem 0.1rem;
     max-height: fit-content; min-height: 58vw;
 }
 

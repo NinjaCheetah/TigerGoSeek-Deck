@@ -17,6 +17,8 @@ origins = [
     "https://tigergoseek.ninjacheetah.dev",
 ]
 
+# noinspection PyTypeChecker
+# PyCharm thinks CORSMiddleware is the wrong type, it's a confirmed PyCharm bug.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -40,6 +42,7 @@ def reset_player(username: str):
     hand, cards_remaining = reset_player_data(username)
     content = {
         "message": "OK",
+        "status": "ok",
         "hand": hand,
         "cards_remaining": cards_remaining
     }
@@ -58,15 +61,17 @@ def reset_player(username: str):
 )
 def draw_card(username: str):
     username = username.lower()
-    hand, cards_remaining = draw_card_for_player(username)
+    hand, cards_remaining, status = draw_card_for_player(username)
     if hand is None:
         content = {
             "message": "Player {} has an invalid hand or deck.".format(username),
+            "status": "error.handinvalid",
             "hand": None
         }
     else:
         content = {
             "message": "OK",
+            "status": status,
             "hand": hand,
             "cards_remaining": cards_remaining
         }
@@ -89,11 +94,13 @@ def discard_card(username: str, card_id: int):
     if hand is None:
         content = {
             "message": "Player {} has an invalid hand or deck.".format(username),
+            "status": "ok",
             "hand": None
         }
     else:
         content = {
             "message": "OK",
+            "status": "ok",
             "hand": hand,
             "cards_remaining": cards_remaining
         }
@@ -101,7 +108,7 @@ def discard_card(username: str, card_id: int):
 
 
 @app.get(
-    "/hider/{username}/draw_pick/{count}",
+    "/hider/{username}/draw_multi/{count}",
     response_class=JSONResponse,
     responses={
         200: {
@@ -110,18 +117,20 @@ def discard_card(username: str, card_id: int):
         }
     }
 )
-def draw_pick(username: str, count: int):
+def draw_multi(username: str, count: int):
     username = username.lower()
-    cards, cards_remaining = draw_pick_x_for_player(username, count)
+    cards, cards_remaining, status = multi_draw_for_player(username, count)
     if cards is None:
         content = {
             "message": "Could not draw cards for selection for {}.".format(username),
+            "status": status,
             "cards": None,
             "cards_remaining": cards_remaining
         }
     else:
         content = {
             "message": "OK",
+            "status": status,
             "cards": cards,
             "cards_remaining": cards_remaining
         }
@@ -144,11 +153,13 @@ def confirm_pick(username: str, card_id: int):
     if hand is None:
         content = {
             "message": "Player {} has an invalid hand or deck.".format(username),
+            "status": "ok",
             "hand": None
         }
     else:
         content = {
             "message": "OK",
+            "status": "ok",
             "hand": hand,
             "cards_remaining": cards_remaining
         }
@@ -169,6 +180,7 @@ def hello(username: str):
     hand, cards_remaining, awaiting_selection = get_state_for_player(username)
     content = {
         "message": "OK",
+        "status": "ok",
         "hand": hand,
         "cards_remaining": cards_remaining,
         "awaiting_selection": awaiting_selection
