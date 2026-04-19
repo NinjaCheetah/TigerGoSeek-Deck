@@ -22,11 +22,12 @@ async function getCards() {
 
     if (username === "") {
         window.location.href = "/";
+        return;
     }
 
     console.log(`getting hand for player ${username}`);
 
-    const targetUrl = `${utils.API_URL}/hider/${username}/hello`
+    const targetUrl = `${utils.API_URL}/hider/${username}`
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
@@ -42,6 +43,7 @@ async function getCards() {
     } catch (e) {
         console.error(e);
         console.error("failed to get player's hand, read error above");
+        await handleNonOkStatus("error.unknown");
     }
 }
 
@@ -91,6 +93,7 @@ async function drawCard() {
     } catch (e) {
         console.error(e);
         console.error("failed to draw card for player, read error above");
+        await handleNonOkStatus("error.unknown");
     }
 }
 
@@ -111,6 +114,7 @@ async function discardSelectedCards() {
             } catch (e) {
                 console.error(e);
                 console.error("failed to draw card for player, read error above");
+                await handleNonOkStatus("error.unknown");
             }
         }
     }
@@ -134,6 +138,7 @@ async function resetHand() {
     } catch (e) {
         console.error(e);
         console.error("failed to reset player's hand, read error above");
+        await handleNonOkStatus("error.unknown");
     }
 }
 
@@ -195,6 +200,7 @@ async function drawMulti(count) {
     } catch (e) {
         console.error(e);
         console.error("failed to draw cards for selection for player, read error above");
+        await handleNonOkStatus("error.unknown");
     }
 }
 
@@ -233,6 +239,7 @@ async function multiSelectConfirm() {
     } catch (e) {
         console.error(e);
         console.error("failed to draw card for player, read error above");
+        await handleNonOkStatus("error.unknown");
     }
 
     modal.hide();

@@ -166,7 +166,7 @@ def confirm_pick(username: str, card_id: int):
     return JSONResponse(content=content)
 
 @app.get(
-    "/hider/{username}/hello",
+    "/hider/{username}",
     response_class=JSONResponse,
     responses={
         200: {
@@ -175,7 +175,7 @@ def confirm_pick(username: str, card_id: int):
         }
     }
 )
-def hello(username: str):
+def state(username: str):
     username = username.lower()
     hand, cards_remaining, awaiting_selection = get_state_for_player(username)
     content = {
