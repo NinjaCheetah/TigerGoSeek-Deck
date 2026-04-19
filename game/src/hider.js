@@ -27,7 +27,7 @@ async function getCards() {
 
     console.log(`getting hand for player ${username}`);
 
-    const targetUrl = `${utils.API_URL}/hider/${username}`
+    const targetUrl = `/api/hider/${username}`
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
@@ -81,7 +81,7 @@ async function drawCard() {
     let username = await utils.getCookie("username");
     console.log(`drawing a card for player ${username}`);
 
-    const targetUrl = `${utils.API_URL}/hider/${username}/draw`
+    const targetUrl = `/api/hider/${username}/draw`
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
@@ -107,7 +107,7 @@ async function discardSelectedCards() {
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             let targetId = checkboxes[i].value.slice(4);
-            const targetUrl = `${utils.API_URL}/hider/${username}/discard/${targetId}`
+            const targetUrl = `/api/hider/${username}/discard/${targetId}`
             try {
                 apiResponse = await utils.makeRequest(targetUrl);
                 console.log(apiResponse);
@@ -130,7 +130,7 @@ async function resetHand() {
     let username = await utils.getCookie("username");
     console.log(`resetting hand for player ${username}`);
 
-    const targetUrl = `${utils.API_URL}/hider/${username}/reset`
+    const targetUrl = `/api/hider/${username}/reset`
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
@@ -185,7 +185,7 @@ async function drawMulti(count) {
     let username = await utils.getCookie("username");
     console.log(`drawing ${count} cards to choose from for player ${username}`);
 
-    const targetUrl = `${utils.API_URL}/hider/${username}/draw_multi/${count}`
+    const targetUrl = `/api/hider/${username}/draw_multi/${count}`
     try {
         const apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);
@@ -230,7 +230,7 @@ async function multiSelectConfirm() {
         return;
     }
 
-    const targetUrl = `${utils.API_URL}/hider/${username}/confirm_pick/${checked[0]}`
+    const targetUrl = `/api/hider/${username}/confirm_pick/${checked[0]}`
     try {
         let apiResponse = await utils.makeRequest(targetUrl);
         console.log(apiResponse);

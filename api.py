@@ -5,7 +5,8 @@
 # Provides the base API routes required on the backend to manage players' decks.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
 from modules.player import *
 
@@ -14,7 +15,6 @@ app = FastAPI()
 origins = [
     "http://localhost:4000",
     "http://127.0.0.1:4000",
-    "https://tigergoseek.ninjacheetah.dev",
 ]
 
 # noinspection PyTypeChecker
@@ -27,8 +27,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.mount("/game", StaticFiles(directory="game", html=True), name="frontend")
+
 @app.get(
-    "/hider/{username}/reset",
+    "/api/hider/{username}/reset",
     response_class=JSONResponse,
     responses={
         200: {
@@ -50,7 +52,7 @@ def reset_player(username: str):
 
 
 @app.get(
-    "/hider/{username}/draw",
+    "/api/hider/{username}/draw",
     response_class=JSONResponse,
     responses={
         200: {
@@ -79,7 +81,7 @@ def draw_card(username: str):
 
 
 @app.get(
-    "/hider/{username}/discard/{card_id}",
+    "/api/hider/{username}/discard/{card_id}",
     response_class=JSONResponse,
     responses={
         200: {
@@ -108,7 +110,7 @@ def discard_card(username: str, card_id: int):
 
 
 @app.get(
-    "/hider/{username}/draw_multi/{count}",
+    "/api/hider/{username}/draw_multi/{count}",
     response_class=JSONResponse,
     responses={
         200: {
@@ -138,7 +140,7 @@ def draw_multi(username: str, count: int):
 
 
 @app.get(
-    "/hider/{username}/confirm_pick/{card_id}",
+    "/api/hider/{username}/confirm_pick/{card_id}",
     response_class=JSONResponse,
     responses={
         200: {
@@ -166,7 +168,7 @@ def confirm_pick(username: str, card_id: int):
     return JSONResponse(content=content)
 
 @app.get(
-    "/hider/{username}",
+    "/api/hider/{username}",
     response_class=JSONResponse,
     responses={
         200: {
@@ -189,7 +191,7 @@ def state(username: str):
 
 
 @app.get(
-    "/health",
+    "/api/health",
     response_class=JSONResponse,
     responses={
         200: {
@@ -202,6 +204,10 @@ def health_check():
     return JSONResponse(status_code=200, content={"status": "OK"})
 
 
-@app.get("/")
-def hello_world():
-  return "You've reached api.tigergoseek.ninjacheetah.dev. no snooping!"
+@app.get(
+    "/",
+    response_class=RedirectResponse,
+    status_code=301,
+)
+def redirect_to_login():
+    return RedirectResponse("/game/login.html")
