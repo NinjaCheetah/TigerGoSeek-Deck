@@ -1,20 +1,38 @@
-// "login.js" from TigerGoSeek Deck
-// Copyright (c) 2026 NinjaCheetah
-// https://github.com/NinjaCheetah/TigerGoSeek-Deck
+// "login.js" from TigerGoSeek
+// Copyright (c) 2026 TigerGoSeek Contributors
+// https://github.com/NinjaCheetah/TigerGoSeek
 
 import * as utils from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("btn_login").onclick = login;
+    document.getElementById("btn_login_hider").onclick = loginHider;
+    document.getElementById("btn_login_seeker").onclick = loginSeeker;
 
     loadSavedUsername().then();
 });
 
-async function login() {
+async function loginHider() {
     let username = document.getElementById("username_entry").value.toLowerCase();
-    console.log(`logging in as ${username}`);
+
+    if (username === "") {
+        return;
+    }
+
+    console.log(`player ${username} logging in as a hider`);
     await utils.setCookie("username", username, 1);
-    window.location.href="hider.html";
+    window.location.href = "/game/hider.html";
+}
+
+async function loginSeeker() {
+    let username = document.getElementById("username_entry").value.toLowerCase();
+
+    if (username === "") {
+        return;
+    }
+
+    console.log(`player ${username} logging in as a seeker`);
+    await utils.setCookie("username", username, 1);
+    window.location.href = "/game/seeker.html";
 }
 
 async function loadSavedUsername() {

@@ -1,6 +1,6 @@
-// "app.js" from TigerGoSeek Deck
-// Copyright (c) 2026 NinjaCheetah
-// https://github.com/NinjaCheetah/TigerGoSeek-Deck
+// "utils.js" from TigerGoSeek
+// Copyright (c) 2026 TigerGoSeek Contributors
+// https://github.com/NinjaCheetah/TigerGoSeek
 //
 // Provides the frontend code for interacting with the backend to display players' cards and trigger updates to them.
 

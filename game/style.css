@@ -1,4 +1,5 @@
 @import '/game/assets/bootstrap/css/bootstrap.min.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
 :root {
   font-family: Inter, sans-serif;
@@ -32,12 +33,6 @@ input {
     font-size: 1.6vw;
 }
 
-#username_div {
-    display: inline;
-	column-gap: 20px;
-    justify-content: center;
-}
-
 .card {
     background-color: white;
     border-radius: 8px;
@@ -52,6 +47,12 @@ input {
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+
+#btn_account {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 /*.card {*/

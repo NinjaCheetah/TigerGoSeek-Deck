@@ -1,8 +1,8 @@
-# "api.py" from TigerGoSeek
+# "hider.py" from TigerGoSeek
 # Copyright (c) 2026 TigerGoSeek Contributors
 # https://github.com/NinjaCheetah/TigerGoSeek
 #
-# Provides the actual backend functions to create and update players' decks.
+# Provides the actual backend functions to manage hiders' cards.
 
 import json
 import random

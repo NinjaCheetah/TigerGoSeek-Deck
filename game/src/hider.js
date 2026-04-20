@@ -1,6 +1,6 @@
-// "hider.js" from TigerGoSeek Deck
-// Copyright (c) 2026 NinjaCheetah
-// https://github.com/NinjaCheetah/TigerGoSeek-Deck
+// "hider.js" from TigerGoSeek
+// Copyright (c) 2026 TigerGoSeek Contributors
+// https://github.com/NinjaCheetah/TigerGoSeek
 
 import * as utils from "./utils.js";
 
@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn_draw_2_pick_1").onclick = drawMulti2;
     document.getElementById("btn_draw_3_pick_1").onclick = drawMulti3;
     document.getElementById('btn_confirm_multi_select').onclick = multiSelectConfirm;
+    document.getElementById("btn_switch_to_seeker").onclick = switchToSeekerView;
 
-    getCards().then();
+    loadHiderState().then();
 });
 
 // comment this later ig
-async function getCards() {
+async function loadHiderState() {
     let username = await utils.getCookie("username");
 
     if (username === "") {
@@ -26,6 +27,8 @@ async function getCards() {
     }
 
     console.log(`getting hand for player ${username}`);
+
+    document.getElementById("account_username_display").innerText = username;
 
     const targetUrl = `/api/hider/${username}`
     try {
@@ -270,4 +273,8 @@ async function handleNonOkStatus(status) {
 
         const toast = bootstrap.Toast.getOrCreateInstance(targetToast);
         toast.show();
+}
+
+async function switchToSeekerView() {
+    window.location.href = "/game/seeker.html";
 }
