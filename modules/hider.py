@@ -1,6 +1,6 @@
-# "deck.py" from RIT Hide and Seek Deck
-# Copyright (c) 2026 NinjaCheetah
-# https://github.com/NinjaCheetah/RIT-Hide-and-Seek-Deck
+# "api.py" from TigerGoSeek
+# Copyright (c) 2026 TigerGoSeek Contributors
+# https://github.com/NinjaCheetah/TigerGoSeek
 #
 # Provides the actual backend functions to create and update players' decks.
 
@@ -8,26 +8,10 @@ import json
 import random
 from typing import Tuple
 
+from .deck import build_deck
+
 
 MAX_HAND_SIZE = 6
-
-
-def build_deck() -> list:
-    deck = []
-    with open("cards.json", "r") as file:
-        cards = json.loads(file.read())
-        for card in cards:
-            count = card["count"]
-            # This is just to drop the count since it's irrelevant after deck building, will probably change this later.
-            card = {
-                "id": card["id"],
-                "title": card["title"],
-                "description": card["description"],
-                "cost": card["cost"]
-            }
-            for _ in range(count):
-                deck.append(card)
-    return deck
 
 
 def reset_player_data(username: str) -> Tuple[list, int]:
@@ -41,7 +25,7 @@ def reset_player_data(username: str) -> Tuple[list, int]:
         players = {}
 
     players[username] = {
-        "deck": build_deck(),
+        "deck": build_deck("default"),
         "hand": [],
         "awaiting_selection": [],
     }
@@ -76,7 +60,7 @@ def get_state_for_player(username: str) -> Tuple[list, int, list]:
 
     # Player doesn't exist, so give them an empty hand and deck.
     else:
-        player = {"deck": build_deck(), "hand": [], "awaiting_selection": []}
+        player = {"deck": build_deck("default"), "hand": [], "awaiting_selection": []}
         players[username] = player
 
     # Write out updated data and return the player's hand.

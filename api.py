@@ -1,6 +1,6 @@
-# "api.py" from RIT Hide and Seek Deck
-# Copyright (c) 2026 NinjaCheetah
-# https://github.com/NinjaCheetah/RIT-Hide-and-Seek-Deck
+# "api.py" from TigerGoSeek
+# Copyright (c) 2026 TigerGoSeek Contributors
+# https://github.com/NinjaCheetah/TigerGoSeek
 #
 # Provides the base API routes required on the backend to manage players' decks.
 from fastapi import FastAPI
@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
-from modules.player import *
+from modules.hider import *
 
 
 app = FastAPI()

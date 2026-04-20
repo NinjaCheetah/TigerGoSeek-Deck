@@ -1,0 +1,230 @@
+{
+    "name": "Default Deck",
+    "description": "Basic deck designed for regular gameplay.",
+    "cards": [
+        {
+            "id": 0,
+            "count": 15,
+            "title": "2 Minute Bonus",
+            "description": "Add 2 minutes to your final hiding time.",
+            "cost": "",
+            "expires-in": null
+        },
+        {
+            "id": 1,
+            "count": 10,
+            "title": "5 Minute Bonus",
+            "description": "Add 5 minutes to your final hiding time.",
+            "cost": "",
+            "expires-in": null
+        },
+        {
+            "id": 2,
+            "count": 3,
+            "title": "10 Minute Bonus",
+            "description": "Add 10 minutes to your final hiding time.",
+            "cost": "",
+            "expires-in": null
+        },
+        {
+            "id": 3,
+            "count": 3,
+            "title": "Veto",
+            "description": "Play this card instead of answering a question asked by the seekers. The seekers may choose to ask the question again for double the price.",
+            "cost": "",
+            "expires-in": null
+        },
+        {
+            "id": 4,
+            "count": 3,
+            "title": "Randomize Question",
+            "description": "Play this card to randomize a question being asked by the seekers to another unasked question in the same category.",
+            "cost": "",
+            "expires-in": null
+        },
+        {
+            "id": 5,
+            "count": 1,
+            "title": "Curse of the Furry Stickers",
+            "description": "Before the seekers can ask another question, they must find and take a picture of a furry sticker stuck to something on campus.",
+            "cost": "Discard a card.",
+            "expires-in": 30
+        },
+        {
+            "id": 6,
+            "count": 1,
+            "title": "Curse of the Photoshoot",
+            "description": "Before the seekers can ask another question, they must find an RIT logo and take a group picture in front of it. The camera must be placed at least 10 feet away.",
+            "cost": "Discard a card.",
+            "expires-in": 30
+        },
+        {
+            "id": 7,
+            "count": 1,
+            "title": "Curse of the Tunnels",
+            "description": "For the duration of this curse, the seekers must use tunnels to travel between buildings wherever possible. If two buildings are connected outside of the tunnels that connection may not be used. If the seekers are outside, they may enter and leave a building through one door they choose and no others. If a building does not have any tunnel connections, this can be ignored.",
+            "cost": "Discard two cards.",
+            "expires-in": 20
+        },
+        {
+            "id": 8,
+            "count": 1,
+            "title": "Curse of the Specific Appetite",
+            "description": "Before the seekers can ask another question, they must locate and buy a specified food item from a dining location or vending machine.",
+            "cost": "Discard two matching time bonuses equal to or greater than the price of the food item.",
+            "expires-in": 30
+        },
+        {
+            "id": 9,
+            "count": 1,
+            "title": "Curse of the Nostalgic Student",
+            "description": "Before the seekers can ask another question, they must visit a classroom that at least one seeker has previously had a class in.",
+            "cost": "Discard a card. You must be indoors.",
+            "expires-in": 20
+        },
+        {
+            "id": 10,
+            "count": 1,
+            "title": "Curse of the Jammed Door",
+            "description": "For the duration of this curse, the seekers must roll two dice before entering any door. To enter the door, they must roll at least a 7. If they fail the roll, they must wait 5 minutes before trying again.",
+            "cost": "Roll a die. If it's odd, this curse has no effect.",
+            "expires-in": 15
+        },
+        {
+            "id": 11,
+            "count": 1,
+            "title": "Curse of the One Timer",
+            "description": "Before the seekers can ask another question, they must find a stick off the ground and hit a rock 30 feet with it, hockey style.",
+            "cost": "Discard two cards.",
+            "expires-in": 30
+        },
+        {
+            "id": 12,
+            "count": 1,
+            "title": "Curse of ROAR PLUS",
+            "description": "Before the seekers can ask another question, they must travel to Gracie's and count to 100, imagining how delicious all those meals could be.",
+            "cost": "You must have at least three other cards. Discard your entire hand.",
+            "expires-in": 30
+        },
+        {
+            "id": 13,
+            "count": 1,
+            "title": "Curse of the Restraining Order",
+            "description": "For the duration of this curse, the seekers must remain 50 feet away from each other.",
+            "cost": "Discard another curse.",
+            "expires-in": 10
+        },
+        {
+            "id": 14,
+            "count": 1,
+            "title": "Curse of the Gilded Inquiry",
+            "description": "Choose a question to gild. If the seekers ask that question, it is immediately vetoed and you draw three extra cards.",
+            "cost": "The seekers next question is free.",
+            "expires-in": null
+        },
+        {
+            "id": 15,
+            "count": 1,
+            "title": "Curse of the Back Roads",
+            "description": "For the duration of this curse, the seekers cannot travel along the Quarter Mile.",
+            "cost": "Discard another curse.",
+            "expires-in": 30
+        },
+        {
+            "id": 16,
+            "count": 1,
+            "title": "Curse of the Unloaded Latke",
+            "description": "Before the seekers can ask another question, they must visit a closed dining location. The seekers cannot consult TigerDine or the RIT Dining website to check times.",
+            "cost": "Discard two cards.",
+            "expires-in": 15
+        },
+        {
+            "id": 17,
+            "count": 1,
+            "title": "Curse of the Sinful Campus",
+            "description": "Before the seekers can ask another question, they must find a poster, sticker, flag, or any material mentioning something about gender or sexuality.",
+            "cost": "Discard a time bonus.",
+            "expires-in": 30
+        },
+        {
+            "id": 18,
+            "count": 1,
+            "title": "Curse of the Elevator",
+            "description": "Before the seekers can ask another question, they must travel a total of 20 floors on an elevator.",
+            "cost": "Send the hiders your exact elevation.",
+            "expires-in": 15
+        },
+        {
+            "id": 19,
+            "count": 1,
+            "title": "Curse of the Drained Brain",
+            "description": "Choose 2 questions from the question menu that haven't been asked yet. The seekers can no longer ask these questions for the remainder of the round.",
+            "cost": "Discard your entire hand.",
+            "expires-in": null
+        },
+        {
+            "id": 20,
+            "count": 1,
+            "title": "Curse of the Bird Guide",
+            "description": "Film a bird for as long as you can, with a maximum of 15 minutes. If the bird leaves the frame, your recording time ends then. The seekers may not ask another question until they successfully record a bird for as you did.",
+            "cost": "Take a video of a bird, but do not send it to the seekers.",
+            "expires-in": null
+        },
+        {
+            "id": 21,
+            "count": 1,
+            "title": "Curse of the Zoologist",
+            "description": "Take a photo of a wild fish, bird, mammal, repile, amphibian, or bug. Before the seekers can ask another question, they must take a picture of a wild animal in the sam category as yours.",
+            "cost": "Take a photo of a wild animal and send it to the seekers.",
+            "expires-in": 15
+        },
+        {
+            "id": 22,
+            "count": 1,
+            "title": "Curse of the Terminally Offline",
+            "description": "For the duration of this curse, the seekers may not use their phones (excluding time-sensitive issues or recordings).",
+            "cost": "Discard a card.",
+            "expires-in": 10
+        },
+        {
+            "id": 23,
+            "count": 1,
+            "title": "Curse of the College Advertisement",
+            "description": "Before the seekers can ask another question, they must recreate a photo found on the RIT website. The photo has to include at least 75% of the original photo, excluding variables like movable objects and people.",
+            "cost": "Discard a time bonus and a curse.",
+            "expires-in": 20
+        },
+        {
+            "id": 24,
+            "count": 1,
+            "title": "Curse of the Colorblind",
+            "description": "For the remainder of the round, you may send all photos requested by the seekers in greyscale.",
+            "cost": "Send any photo from the photo question category in greyscale.",
+            "expires-in": null
+        },
+        {
+            "id": 25,
+            "count": 1,
+            "title": "Curse of the Scissorer",
+            "description": "Before the seekers can ask another question, they must win a best of three game of rock paper scissors against a stranger. If they lose, they must wait 2 minutes before trying again against a new opponent.",
+            "cost": "Send a photo of a rock, a piece of paper, or a pair of scissors.",
+            "expires-in": 15
+        },
+        {
+            "id": 26,
+            "count": 1,
+            "title": "Curse of the Awkward College Student",
+            "description": "Before the seekers can ask another question, they must take a selfie with a stranger.",
+            "cost": "Take a selfie with a stranger and send it to the seekers.",
+            "expires-in": 15
+        },
+        {
+            "id": 27,
+            "count": 1,
+            "title": "Curse of the Sardine",
+            "description": "The seekers are now split, as in the game sardines. They ask the hider questions outside of the group chat. The seeker has twice as long to answer. Any seeker before the last who finds the hider joins them. Every second they spend with the hider is added to their run timer, either retroactively if they have already gone or for their future run.",
+            "cost": "The cost for the rest of the seekers questions is draw 1. That's it. You literally changed the game... what the hell man.",
+            "expires-in": null
+        }
+    ]
+}

@@ -47,6 +47,13 @@ input {
     max-height: fit-content; min-height: 58vw;
 }
 
+.card .expiration {
+    font-size: 1rem;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
 /*.card {*/
 /*    !*display: block;*!*/
 

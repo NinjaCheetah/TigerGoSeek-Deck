@@ -55,12 +55,22 @@ async function updateDisplay(hand) {
 
     // For each card, add it to a row
     for(let i = 0; i < hand.length; i++) {
+        let expiresStr
+        if (hand[i]["expires-in"] !== null) {
+            expiresStr = hand[i]["expires-in"];
+        } else {
+            expiresStr = "";
+        }
+
         let cardDiv = `
         <div class="col-6">
             <div class="card" id="card${i}div">
                 <h2 style="padding-top: 1rem;">${hand[i]["title"]}</h2>
                 <p>${hand[i]["description"]}</p>
                 <p><b>${hand[i]["cost"]}</b></p>
+                <div class="expiration">
+                    <p>${expiresStr}</p>
+                </div>
                 <input type="checkbox" id="card${i}" name="card" value="card${hand[i]["id"]}"/>
             </div>
         </div>
@@ -155,6 +165,7 @@ async function displayMultiSelect(cards) {
                 <h2 style="padding-top: 1rem;">${cards[i]["title"]}</h2>
                 <p>${cards[i]["description"]}</p>
                 <p><b>${cards[i]["cost"]}</b></p>
+                <p class="expiration">${cards[i]["expires-in"]}</p>
                 <input type="checkbox" id="selectcard${i}" name="selectcard" value="selectcard${cards[i]["id"]}"/>
             </div>
         </div>
